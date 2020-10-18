@@ -17,22 +17,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var identifier = ""
+        let identifier: String
         
-        if indexPath.row % 3 == 0 || indexPath.row == 0 {
+        if indexPath.row % 3 == 0  {
              identifier = "Cell1"
-        } else if  indexPath.row % 3 == 1 || indexPath.row == 1 {
+        } else if  indexPath.row % 3 == 1 {
              identifier = "Cell2"
         } else {
              identifier = "Cell3"
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
-        cell?.textLabel?.text = prefecture[indexPath.row]
-        cell?.detailTextLabel?.text = "\(indexPath.row + 1)番目の都道府県です"
+        cell.textLabel?.text = prefecture[indexPath.row]
+        cell.detailTextLabel?.text = "\(indexPath.row + 1)番目の都道府県です"
         
-        return cell!
+        return cell
     }
     
 }
